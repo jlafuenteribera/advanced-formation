@@ -46,9 +46,9 @@ Microservicio creado con Python.
 
 Para ejecutar:
 
-`pip install`
+`pip install -r requirements.txt`
 
-`python3 app.py`
+`python3 controller.py`
 
 ## Contenedores
 
