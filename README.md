@@ -52,17 +52,81 @@ Para ejecutar:
 
 ## Contenedores
 
-### Imagenes
+### Angular Docker
 
-Imagenes contenedores docker creadas a partir de los microservicios del punto anterior.
+Para crear la imagen es necesario instalar las dependencias y compilar el código:
 
-Para ejecutar:
+`npm install`
 
-`docker create nombre_imagen`
+`npm build`
+
+Una vez compilado, se crea la imagen y se levanta el contenedor ( Accesible desde <http://localhost:8090> ):
+
+`docker build -t jlafuente/angular .`
+
+`docker run -p 8090:80 -d jlafuente/angular`
+
+### Spring-Boot Docker
+
+Para crear la imagen es necesario instalar las dependencias y compilar el código:
+
+`mvn clean install package`
+
+Una vez compilado, se crea la imagen y se levanta el contenedor ( Accesible desde <http://localhost:8080> ):
+
+`docker build -t jlafuente/java .`
+
+`docker run -p 8080:8080 -d jlafuente/java`
+
+### Nodejs Docker
+
+Para crear la imagen es necesario instalar las dependencias y compilar el código:
+
+`npm install`
+
+`npm build`
+
+Una vez compilado, se crea la imagen y se levanta el contenedor ( Accesible desde <http://localhost:8081> ):
+
+`docker build -t jlafuente/nodejs .`
+
+`docker run -p 8081:8080 -d jlafuente/nodejs`
+
+### Python Docker
+
+Para crear la imagen y se levantar el contenedor ( Accesible desde <http://localhost:8082> ):
+
+`docker build -t jlafuente/python .`
+
+`docker run -p 8082:8080 -d jlafuente/python`
+
+### Portainer
+
+Para el Portainer se crea un volumen para conservar los datos de configuración:
+
+`docker volume create portainer_data`
+
+`docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer`
+
+### Liferay
+
+Para el Liferay se crea un volumen para conservar los datos de configuración:
+
+`docker volume create liferay_data`
+
+`docker run -d -p 7006:8080 --restart always --name Liferay_App -v liferay_data:/storage mdelapenya/liferay-portal`
+
+### Nexus
+
+Para el Nexus se crea un volumen para conservar los datos de configuración:
+
+`docker volume create --name nexus_data`
+
+`docker run -d -p 7001:8081 --name nexus --restart always -v nexus_data:/nexus-data sonatype/nexus3`
 
 ### Docker-Compose
 
-configuración docker-compose para levantar los 3 microservicios anteriores en 1 orden.
+Creación de los 4 contenedores anteriores ( Angular, Spring-Boot, Nodejs y Python ) en 1 orden.
 
 Para ejecutar:
 
