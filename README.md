@@ -19,6 +19,8 @@
 
 ## Transaccionalidad
 
+Para estos ejemplos necesitaremos un PostgreSQL instalado en la máquina.
+
 ### JDBC
 
 Aqui tenemos 2 clases con 1 Main cada una.
