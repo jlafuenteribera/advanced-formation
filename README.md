@@ -19,7 +19,8 @@
 
 ## Transaccionalidad
 
-Para estos ejemplos necesitaremos un PostgreSQL instalado en la máquina. El script de inicialización de la DB esta incluido en la carpeta.
+Para estos ejemplos necesitaremos un PostgreSQL instalado en la máquina.
+El script de inicialización de la DB esta incluido en la carpeta.
 
 ### JDBC
 
